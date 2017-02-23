@@ -53,7 +53,7 @@ autorestart=true
 Your `Dockerfile` might be:
 
 ```bash
-FROM sourceallies/php-node
+FROM sourceallies/php-node-docker
 COPY src /var/www/app
 RUN useradd -u 1001 -G www-data -m sai
 RUN chown -R sai:www-data /var/www/app
