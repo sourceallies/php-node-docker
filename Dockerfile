@@ -52,4 +52,8 @@ RUN curl -s http://getcomposer.org/installer | php && \
     echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
     mv composer.phar /usr/local/bin/composer
 
+# Allows server env (from docker-compose or cloudformation)
+# to be available via dotEnv (and $_SERVER) in php-fpm.
+RUN sed -e 's/;clear_env = no/clear_env = no/' -i /etc/php/7.1/fpm/pool.d/www.conf
+
 RUN rm -rf /etc/nginx/sites-enabled
