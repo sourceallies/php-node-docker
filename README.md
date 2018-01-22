@@ -1,5 +1,5 @@
 # Overview
-Docker image for php, node, composer
+Docker image for php, node, and composer
 
 ```bash
 docker build -t php-node-docker .
