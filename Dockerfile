@@ -22,6 +22,15 @@ RUN apt-get install -y \
     vim \
     nano
 
+# Install Python - needed for AWS CLI
+RUN apt-get install -y python
+
+# Install the AWS CLI
+RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+RUN apt-get install unzip
+RUN unzip awscli-bundle.zip
+RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
 # Install Nginx
 run apt-get install -y nginx
 
@@ -50,7 +59,7 @@ RUN apt-get update && \
         libcurl4-openssl-dev \
         libedit-dev \
         libssl-dev \
-        libxml2-dev
+        libxml2-dev 
 
 # Install Supervisord
 RUN apt-get install -y supervisor
