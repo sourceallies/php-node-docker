@@ -32,34 +32,34 @@ RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 # Install Nginx
-run apt-get install -y nginx
+RUN apt-get install -y nginx
 
 # Add the "PHP 7" ppa
-RUN apt-get install -y software-properties-common && \
-    add-apt-repository -y ppa:ondrej/php
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ondrej/php
 
-RUN apt-get update && \
-    apt-get install -y \
-        php7.1 \
-        php7.1-cli \
-        php7.1-fpm \
-        php7.1-common \
-        php7.1-curl \
-        php7.1-json \
-        php7.1-xml \
-        php7.1-mbstring \
-        php7.1-mcrypt \
-        php7.1-mysql \
-        php7.1-zip \
-        php7.1-memcached \
-        php7.1-gd \
-        php7.1-dev \
-        php7.1-soap \
-        pkg-config \
-        libcurl4-openssl-dev \
-        libedit-dev \
-        libssl-dev \
-        libxml2-dev 
+RUN apt-get update
+RUN apt-get install -y \
+    php7.1 \
+    php7.1-cli \
+    php7.1-fpm \
+    php7.1-common \
+    php7.1-curl \
+    php7.1-json \
+    php7.1-xml \
+    php7.1-mbstring \
+    php7.1-mcrypt \
+    php7.1-mysql \
+    php7.1-zip \
+    php7.1-memcached \
+    php7.1-gd \
+    php7.1-dev \
+    php7.1-soap \
+    pkg-config \
+    libcurl4-openssl-dev \
+    libedit-dev \
+    libssl-dev \
+    libxml2-dev
 
 # Install Supervisord
 RUN apt-get install -y supervisor
